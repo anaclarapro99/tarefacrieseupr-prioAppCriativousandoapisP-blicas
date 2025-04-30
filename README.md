@@ -1,1 +1,0 @@
-# tarefacrieseupr-prioAppCriativousandoapisP-blicas
