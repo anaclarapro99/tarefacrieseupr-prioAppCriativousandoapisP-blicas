@@ -1,7 +1,6 @@
 import streamlit as st
 import requests
 import random
-from deep_translator import GoogleTranslator
 
 # =========================
 # CONFIGURAÇÕES
