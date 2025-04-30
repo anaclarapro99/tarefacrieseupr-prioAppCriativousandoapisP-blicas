@@ -1,40 +1,72 @@
 import streamlit as st
 import requests
 import random
-# Config
-API_KEY = "SUA_CHAVE_API_NINJAS"
+from deep_translator import GoogleTranslator
+
+# =========================
+# CONFIGURAÇÕES
+# =========================
+API_KEY = "SUA_CHAVE_API_NINJAS_AQUI"  # Substitua pela sua chave real
 HEADERS = {"X-Api-Key": API_KEY}
-GENRES = ["action", "comedy", "drama", "fantasy", "horror"]
+GENRES = ["action", "comedy", "drama", "horror", "romance", "sci-fi", "thriller"]
 
-# Fundo aleatório
-colors = ['#FFCDD2', '#F8BBD0', '#E1BEE7', '#BBDEFB', '#C8E6C9']
-st.markdown(f"<style>body {{ background-color: {random.choice(colors)}; }}</style>", unsafe_allow_html=True)
+# Cores para o fundo
+colors = ['#fce4ec', '#e3f2fd', '#e8f5e9', '#fff3e0', '#ede7f6']
+st.markdown(f"""
+    <style>
+        .stApp {{
+            background-color: {random.choice(colors)};
+        }}
+    </style>
+""", unsafe_allow_html=True)
 
-# Função para obter filme
-def get_random_movie():
-    genre = random.choice(GENRES)
-    response = requests.get(f"https://api.api-ninjas.com/v1/movies?genre={genre}", headers=HEADERS)
-    if response.ok:
-        movie = random.choice(response.json())
-        return movie
+# =========================
+# FUNÇÕES
+# =========================
+
+def traduzir(texto):
+    try:
+        return GoogleTranslator(source='auto', target='pt').translate(texto)
+    except:
+        return texto  # Retorna original em caso de falha
+
+def obter_filme():
+    for _ in range(5):  # Tenta até 5 vezes caso venha lista vazia
+        genero = random.choice(GENRES)
+        url = f"https://api.api-ninjas.com/v1/movies?genre={genero}"
+        resposta = requests.get(url, headers=HEADERS)
+        if resposta.status_code == 200:
+            filmes = resposta.json()
+            if filmes:
+                return random.choice(filmes)
     return None
 
-# Traduzir texto
-def traduzir(texto):
-    return GoogleTranslator(source='auto', target='pt').translate(texto)
+# =========================
+# INTERFACE
+# =========================
 
-# Interface
 st.title("🎬 CineSurpresa")
+st.caption("Descubra um filme aleatório e divirta-se!")
+
 if st.button("🎲 Surpreenda-me!"):
-    filme = get_random_movie()
+    filme = obter_filme()
     if filme:
-        titulo_pt = traduzir(filme['title'])
-        sinopse_pt = traduzir(filme['description'])
-        st.subheader(f"🎞️ {titulo_pt} ({filme['year']})")
-        st.markdown(f"**Gênero:** {filme['genre'].capitalize()} | **Classificação:** {filme['rating']}")
-        st.write(f"📝 {sinopse_pt}")
+        titulo_original = filme.get("title", "Sem título")
+        sinopse_original = filme.get("description", "Sem descrição")
+        genero = filme.get("genre", "Desconhecido")
+        ano = filme.get("year", "Ano desconhecido")
+        nota = filme.get("rating", "Sem nota")
+
+        # Tradução
+        titulo_traduzido = traduzir(titulo_original)
+        sinopse_traduzida = traduzir(sinopse_original)
+
+        st.subheader(f"🎞️ {titulo_traduzido} ({ano})")
+        st.markdown(f"**🎭 Gênero:** {genero.capitalize()} | ⭐ **Nota:** {nota}")
+        st.write(f"📝 {sinopse_traduzida}")
+
         if st.toggle("Mostrar original"):
-            st.markdown(f"**Título Original:** {filme['title']}")
-            st.markdown(f"**Descrição Original:** {filme['description']}")
+            st.markdown(f"**Título Original:** {titulo_original}")
+            st.markdown(f"**Descrição Original:** {sinopse_original}")
     else:
-        st.error("Não foi possível buscar o filme.")
+        st.error("❌ Não foi possível buscar o filme. Tente novamente mais tarde.")
