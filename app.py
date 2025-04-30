@@ -1,8 +1,6 @@
 import streamlit as st
 import requests
 import random
-from deep_translator import GoogleTranslator
-
 # Config
 API_KEY = "SUA_CHAVE_API_NINJAS"
 HEADERS = {"X-Api-Key": API_KEY}
