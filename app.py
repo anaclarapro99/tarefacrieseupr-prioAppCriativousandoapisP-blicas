@@ -4,7 +4,7 @@ import random
 from deep_translator import GoogleTranslator
 
 # ============ CONFIGURAÇÃO ============
-API_KEY = "COLE_SUA_CHAVE_AQUI"  # <- SUBSTITUA AQUI
+API_KEY = "OfNwGF2x/St73istn8jX0w==MYaLswGyoe3AQs74"  # <- SUBSTITUA AQUI
 HEADERS = {"X-Api-Key":OfNwGF2x/St73istn8jX0w==MYaLswGyoe3AQs74}
 GENRES = ["action", "comedy", "drama", "horror", "romance", "sci-fi", "thriller"]
 CORES = ['#fce4ec', '#e3f2fd', '#e8f5e9', '#fff3e0', '#ede7f6']
