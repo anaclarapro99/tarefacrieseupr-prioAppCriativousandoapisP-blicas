@@ -63,6 +63,4 @@ if st.button("🎲 Surpreenda-me!"):
         if st.toggle("Mostrar original"):
             st.markdown(f"**Título Original:** {titulo}")
             st.markdown(f"**Descrição Original:** {sinopse}")
-    else:
-        st.error("❌ Nenhum filme encontrado. Verifique sua chave de API e tente novamente.")
   
