@@ -1,7 +1,6 @@
 import streamlit as st
 import requests
 import random
-from deep_translator import GoogleTranslator
 
 # ============ CONFIGURAÇÃO ============
 API_KEY = "OfNwGF2x/St73istn8jX0w==MYaLswGyoe3AQs74"  # <- SUBSTITUA AQUI
