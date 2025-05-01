@@ -2,65 +2,72 @@ import streamlit as st
 import requests
 import random
 
-# ============ CONFIGURAÇÃO ============
-API_KEY = "OfNwGF2x/St73istn8jX0w==MYaLswGyoe3AQs74"  # <- SUBSTITUA AQUI
-HEADERS = {"X-Api-Key": API_KEY}
-GENRES = ["action", "comedy", "drama", "horror", "romance", "sci-fi", "thriller"]
-CORES = ['#fce4ec', '#e3f2fd', '#e8f5e9', '#fff3e0', '#ede7f6']
-
-# ============ ESTILO ============
-cor_fundo = random.choice(CORES)
-st.markdown(f"""
+# Configuração da página
+st.set_page_config(page_title="CineSurpresa", page_icon="🎬", layout="centered")
+st.markdown(
+    """
     <style>
-        .stApp {{
-            background-color: {cor_fundo};
-        }}
+        body {
+            background-color: #0D0D0D;
+            color: white;
+        }
+        .stApp {
+            background-color: #0D0D0D;
+        }
+        .css-1v3fvcr, .css-ffhzg2, .css-10trblm, .css-1cpxqw2 {
+            color: white;
+        }
     </style>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-st.title("🎬 CineSurpresa")
-st.caption("Descubra um filme aleatório de forma divertida!")
+# Chave da API
+API_KEY = "OfNwGF2x/St73istn8jX0w==MYaLswGyoe3AQs74"  # <--- Substitua aqui
 
-# ============ FUNÇÕES ============
-def traduzir(texto):
-    try:
-        return GoogleTranslator(source='auto', target='pt').translate(texto)
-    except Exception as e:
-        return texto
+# Função para buscar um filme aleatório
+def buscar_filme_aleatorio():
+    generos = ["action", "comedy", "drama", "fantasy", "horror", "romance", "sci-fi"]
+    genero_escolhido = random.choice(generos)
+    url = f"https://api.api-ninjas.com/v1/movies?genre={genero_escolhido}"
 
-def obter_filme():
-    for tentativa in range(5):  # tenta várias vezes até achar filme
-        genero = random.choice(GENRES)
-        url = f"https://api.api-ninjas.com/v1/movies?genre={genero}"
-        resposta = requests.get(url, headers=HEADERS)
+    headers = {"X-Api-Key": API_KEY}
+    response = requests.get(url, headers=headers)
 
-        if resposta.status_code == 200:
-            filmes = resposta.json()
-            if filmes:
-                return random.choice(filmes)
+    if response.status_code == 200:
+        filmes = response.json()
+        if filmes:
+            return random.choice(filmes)
         else:
-            st.warning(f"Erro da API: {resposta.status_code} - {resposta.text}")
-    return None
+            st.warning("Nenhum filme encontrado.")
+            return None
+    else:
+        st.error(f"Erro da API: {response.status_code} - {response.text}")
+        return None
 
-# ============ BOTÃO ============
+# Tradutor
+translator = Translator()
+
+# Cabeçalho
+st.markdown("<h1 style='color:white;'>🎬 CineSurpresa</h1>", unsafe_allow_html=True)
+st.markdown("Descubra um filme aleatório e divirta-se!")
+
+# Botão
 if st.button("🎲 Surpreenda-me!"):
-    filme = obter_filme()
+    filme = buscar_filme_aleatorio()
 
     if filme:
-        titulo = filme.get("title", "Sem título")
-        sinopse = filme.get("description", "Sem descrição")
-        genero = filme.get("genre", "Desconhecido")
+        titulo = filme.get("title", "Título não encontrado")
+        sinopse = filme.get("description", "Descrição não disponível")
         ano = filme.get("year", "Ano desconhecido")
-        nota = filme.get("rating", "Sem nota")
+        nota = filme.get("imdb_rating", "Sem nota")
 
-        titulo_pt = traduzir(titulo)
-        sinopse_pt = traduzir(sinopse)
+        # Tradução
+        traducao = translator.translate(sinopse, src='en', dest='pt')
+        sinopse_pt = traducao.text
 
-        st.subheader(f"{titulo_pt} ({ano})")
-        st.markdown(f"🎭 **Gênero:** {genero.capitalize()}  | ⭐ **Nota:** {nota}")
-        st.write(f"📝 {sinopse_pt}")
-
-        if st.toggle("Mostrar original"):
-            st.markdown(f"**Título Original:** {titulo}")
-            st.markdown(f"**Descrição Original:** {sinopse}")
-  
+        st.markdown(f"### 🎞️ {titulo} ({ano})")
+        st.write(f"⭐ Nota IMDb: {nota}")
+        st.write(f"**Sinopse (PT-BR):** {sinopse_pt}")
+        with st.expander("🔍 Ver original (inglês)"):
+            st.write(sinopse)
