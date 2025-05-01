@@ -40,7 +40,6 @@ if st.button("🎲 Surpreenda-me!"):
         autor = resultado.get("author", "Desconhecido")
 
        
-        st.markdown(f"### 🎞️ \"{quote_pt}\"")
         st.markdown(f"👤 Autor: {autor}")
         with st.expander("🔍 Ver original (inglês)"):
             st.write(quote_en)
