@@ -45,9 +45,6 @@ def buscar_filme_aleatorio():
         st.error(f"Erro da API: {response.status_code} - {response.text}")
         return None
 
-# Tradutor
-translator = Translator()
-
 # Cabeçalho
 st.markdown("<h1 style='color:white;'>🎬 CineSurpresa</h1>", unsafe_allow_html=True)
 st.markdown("Descubra um filme aleatório e divirta-se!")
