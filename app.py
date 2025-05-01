@@ -39,7 +39,7 @@ if st.button("🎲 Surpreenda-me!"):
         quote_en = resultado.get("quote", "Frase não encontrada.")
         autor = resultado.get("author", "Desconhecido")
 
-        traducao = translate(quote_en, src='en', dest='pt')
+        traducao = (quote_en, src='en', dest='pt')
         quote_pt = traducao.text
 
         st.markdown(f"### 🎞️ \"{quote_pt}\"")
