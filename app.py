@@ -59,5 +59,5 @@ frase_pt = traduzir_para_portugues(quote_en)
         st.write(f"📝 {frase_pt}")
 
 with st.expander("🔍 Ver texto original (inglês)"):
-    st.write(f"**Título original:** {['title']}")
-    st.write(f"**Descrição original:** {['description']}")
+    st.write(f"**Frase original:** {quote_en}")
+    
