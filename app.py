@@ -57,5 +57,5 @@ frase_pt = traduzir_para_portugues('quote')
 
 with st.expander("🔍 Ver texto original (português)"):
      st.write(quote_en)
-    st.write(f"**Frase original:** ")
+    st.write(f"**Frase original:**")
     
