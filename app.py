@@ -61,5 +61,5 @@ st.write(f"📝 {descricao_pt}")
 
 with st.expander("🔍 Ver texto original (inglês)"):
     st.write(f"**Título original:** {['title']}")
-    st.write(f"**Descrição original:** {filme['description']}")
+    st.write(f"**Descrição original:** {['description']}")
 
