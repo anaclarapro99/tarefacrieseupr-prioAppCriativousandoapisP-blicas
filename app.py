@@ -60,6 +60,6 @@ st.subheader(f"🎬 {titulo_pt}")
 st.write(f"📝 {descricao_pt}")
 
 with st.expander("🔍 Ver texto original (inglês)"):
-    st.write(f"**Título original:** {filme['title']}")
+    st.write(f"**Título original:** {['title']}")
     st.write(f"**Descrição original:** {filme['description']}")
 
