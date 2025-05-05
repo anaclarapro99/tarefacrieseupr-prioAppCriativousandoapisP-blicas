@@ -7,7 +7,7 @@ def traduzir_para_portugues(texto):
         return f"[Erro na tradução: {str(e)}]"
   
 # Configuração da página
-st.set_page_config(page_title="CineSurpresa", page_icon="🎬", layout="centered")
+set_page_config(page_title="CineSurpresa", page_icon="🎬", layout="centered")
 st.markdown("""
     <style>
     .stApp {
