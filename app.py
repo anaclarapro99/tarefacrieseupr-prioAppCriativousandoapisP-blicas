@@ -53,13 +53,10 @@ if st.button("🎲 Surpreenda-me!"):
 st.markdown("---")
 st.markdown("### 📌 Versão em português")
 
-titulo_pt = traduzir_para_portugues(['title'])
-descricao_pt = traduzir_para_portugues(['description'])
+frase_pt = traduzir_para_portugues(quote_en)
 
-# Traduções
-titulo_pt = traduzir_para_portugues
-descricao_pt = traduzir_para_portugues
-
+        st.subheader("🎬 Frase traduzida")
+        st.write(f"📝 {frase_pt}")
 
 st.subheader(f"🎬 {titulo_pt}")
 st.write(f"📝 {descricao_pt}")
