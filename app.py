@@ -54,7 +54,7 @@ st.markdown("---")
 st.markdown("### 📌 Versão em português")
 
 titulo_pt = traduzir_para_portugues(['title'])
-descricao_pt = traduzir_para_portugues(filme['description'])
+descricao_pt = traduzir_para_portugues(['description'])
 
 st.subheader(f"🎬 {titulo_pt}")
 st.write(f"📝 {descricao_pt}")
