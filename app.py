@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from googletrans import Translator
 
 # Configuração da página
 st.set_page_config(page_title="CineSurpresa", page_icon="🎬", layout="centered")
@@ -14,6 +15,9 @@ st.markdown("""
 
 # Chave da API
 API_KEY = "OfNwGF2x/St73istn8jX0w==MYaLswGyoe3AQs74"  # <-- Substitua pela sua chave válida!
+
+# Tradutor
+translator = Translator()
 
 # Função para buscar uma citação aleatória (como se fosse de um filme!)
 def buscar_citacao_aleatoria():
