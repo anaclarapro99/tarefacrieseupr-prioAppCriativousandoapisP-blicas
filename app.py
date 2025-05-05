@@ -53,7 +53,7 @@ if st.button("🎲 Surpreenda-me!"):
 st.markdown("---")
 st.markdown("### 📌 Versão em português")
 
-titulo_pt = traduzir_para_portugues(filme['title'])
+titulo_pt = traduzir_para_portugues(['title'])
 descricao_pt = traduzir_para_portugues(filme['description'])
 
 st.subheader(f"🎬 {titulo_pt}")
