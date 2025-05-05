@@ -49,3 +49,17 @@ if st.button("🎲 Surpreenda-me!"):
         st.markdown(f"👤 Autor: {autor}")
         with st.expander("🔍 Ver original (inglês)"):
             st.write(quote_en)
+
+st.markdown("---")
+st.markdown("### 📌 Versão em português")
+
+titulo_pt = traduzir_para_portugues(filme['title'])
+descricao_pt = traduzir_para_portugues(filme['description'])
+
+st.subheader(f"🎬 {titulo_pt}")
+st.write(f"📝 {descricao_pt}")
+
+with st.expander("🔍 Ver texto original (inglês)"):
+    st.write(f"**Título original:** {filme['title']}")
+    st.write(f"**Descrição original:** {filme['description']}")
+
