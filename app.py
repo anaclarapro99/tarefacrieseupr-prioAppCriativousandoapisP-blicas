@@ -15,9 +15,6 @@ st.markdown("""
 # Chave da API
 API_KEY = "OfNwGF2x/St73istn8jX0w==MYaLswGyoe3AQs74"  # <-- Substitua pela sua chave válida!
 
-# Tradutor
-translator 
-
 # Função para buscar uma citação aleatória (como se fosse de um filme!)
 def buscar_citacao_aleatoria():
     url = "https://api.api-ninjas.com/v1/quotes"
