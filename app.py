@@ -57,7 +57,7 @@ titulo_pt = traduzir_para_portugues(['title'])
 descricao_pt = traduzir_para_portugues(['description'])
 
 # Traduções
-titulo_pt = traduzir_para_portugues(titulo)
+titulo_pt = traduzir_para_portugues
 descricao_pt = traduzir_para_portugues(descricao)
 
 
