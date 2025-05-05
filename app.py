@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-from googletrans import Translator
 
 # Configuração da página
 st.set_page_config(page_title="CineSurpresa", page_icon="🎬", layout="centered")
