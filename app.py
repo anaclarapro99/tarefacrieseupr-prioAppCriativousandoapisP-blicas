@@ -1,5 +1,12 @@
 import streamlit as st
 import requests
+from deep_translator import GoogleTranslator
+
+def traduzir_para_portugues(texto):
+    try:
+        return GoogleTranslator(source='auto', target='pt').translate(texto)
+    except Exception as e:
+        return f"[Erro na tradução: {str(e)}]"
 
 # Configuração da página
 st.set_page_config(page_title="CineSurpresa", page_icon="🎬", layout="centered")
