@@ -58,9 +58,6 @@ frase_pt = traduzir_para_portugues(quote_en)
         st.subheader("🎬 Frase traduzida")
         st.write(f"📝 {frase_pt}")
 
-st.subheader(f"🎬 {titulo_pt}")
-st.write(f"📝 {descricao_pt}")
-
 with st.expander("🔍 Ver texto original (inglês)"):
     st.write(f"**Título original:** {['title']}")
     st.write(f"**Descrição original:** {['description']}")
