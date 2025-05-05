@@ -4,10 +4,11 @@ import requests
 def traduzir_para_portugues(texto):
     try:
         return GoogleTranslator(source='auto', target='pt').translate(texto)
+    except Exception as e:
         return f"[Erro na tradução: {str(e)}]"
-  
+ 
 # Configuração da página
-set_page_config(page_title="CineSurpresa", page_icon="🎬", layout="centered")
+st.set_page_config(page_title="CineSurpresa", page_icon="🎬", layout="centered")
 st.markdown("""
     <style>
     .stApp {
@@ -61,4 +62,3 @@ st.write(f"📝 {descricao_pt}")
 with st.expander("🔍 Ver texto original (inglês)"):
     st.write(f"**Título original:** {['title']}")
     st.write(f"**Descrição original:** {['description']}")
-
