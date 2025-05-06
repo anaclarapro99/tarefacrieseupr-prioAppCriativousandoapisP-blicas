@@ -1,3 +1,4 @@
+pip install deep-translator
 import streamlit as st
 import requests
 
