@@ -51,14 +51,9 @@ if st.button("🎲 Surpreenda-me!"):
             st.write(quote_en)
             frase_inglês = traduzir_para_portugues
 
-st.markdown("---")
-st.markdown("### 📌 Versão em português")
+        st.markdown("---")
+        st.markdown("#### 🍿 Frase traduzida")
+        st.write(quote_pt)
 
-frase_pt = traduzir_para_portugues('quote')
-
-st.subheader("🎬 Frase traduzida")
-st.write(f"📝 {frase_pt}")
-
-with st.expander("🔍 Ver texto original (português)"):
-    st.write(f"**Frase original:** (quote)")
-    
+        with st.expander("🔍 Ver texto original (português)"):
+            st.write(f"Frase original: {quote_en}")
