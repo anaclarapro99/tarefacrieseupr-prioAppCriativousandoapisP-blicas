@@ -62,5 +62,5 @@ except Exception as e:
         st.write(quote_en)
 
         with st.expander("🔍 Ver texto original (português)"):
-            st.write(f"Frase original: {quote_en}")
+            st.write(f"Frase original: {quote}")
             
