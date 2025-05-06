@@ -55,7 +55,6 @@ st.markdown("### 📌 Versão em português")
 
 frase_pt = traduzir_para_portugues('quote')
 
- subheader("🎬 Frase traduzida")
  write(f"📝 {frase_pt}")
 
 with st.expander("🔍 Ver texto original (português)"):
