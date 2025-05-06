@@ -49,7 +49,7 @@ if st.button("🎲 Surpreenda-me!"):
         st.markdown(f"👤 Autor: {autor}")
         with st.expander("🔍 Ver original (inglês)"):
              st.write(quote_en)
-             frase_inglês = traduzir_para_portugues(quote_en)
+             frase_inglês = traduzir_para_portugues(quote)
 
         st.markdown("### 📌 Versão em português")
         st.markdown("#### 🍿 Frase traduzida ")
