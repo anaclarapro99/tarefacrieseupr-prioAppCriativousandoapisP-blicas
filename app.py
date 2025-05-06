@@ -57,7 +57,6 @@ except Exception as e:
             # Se der erro na tradução, mostra a mensagem
             quote_pt = f"[Erro na tradução: {e}]"
     
-        st.markdown("---")
         st.markdown("### 📌 Versão em português")
         st.markdown("#### 🍿 Frase traduzida ")
         st.write(quote_en)
