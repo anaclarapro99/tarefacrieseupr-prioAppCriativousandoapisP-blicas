@@ -50,12 +50,6 @@ if st.button("🎲 Surpreenda-me!"):
         with st.expander("🔍 Ver original (inglês)"):
             st.write(quote_en)
             frase_inglês = traduzir_para_portugues
-try:
-            # Traduz do inglês para o português
-            quote_pt = GoogleTranslator(source='auto', target='pt').translate(quote)
-except Exception as e:
-            # Se der erro na tradução, mostra a mensagem
-            quote_pt = f"[Erro na tradução: {e}]"
     
         st.markdown("### 📌 Versão em português")
         st.markdown("#### 🍿 Frase traduzida ")
