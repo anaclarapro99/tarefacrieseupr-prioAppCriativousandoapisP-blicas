@@ -1,4 +1,3 @@
-pip install --upgrade --force-reinstall deep-translator
 import streamlit as st
 import requests
 
