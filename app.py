@@ -57,3 +57,4 @@ if st.button("🎲 Surpreenda-me!"):
 
         with st.expander("🔍 Ver texto original (português)"):
             st.write(f"Frase original: {quote_en}")
+            
