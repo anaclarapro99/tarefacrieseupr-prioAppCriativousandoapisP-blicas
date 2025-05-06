@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-pip deep-translator
 from deep_translator import GoogleTranslator
 
 def traduzir_para_portugues(texto):
