@@ -53,8 +53,8 @@ if st.button("🎲 Surpreenda-me!"):
 
         st.markdown("---")
         st.markdown("#### 🍿 Frase traduzida")
-        st.write(quote_pt)
+        st.write(quote_en)
 
         with st.expander("🔍 Ver texto original (português)"):
-            st.write(f"Frase original: {quote_pt}")
+            st.write(f"Frase original: {quote_en}")
             
